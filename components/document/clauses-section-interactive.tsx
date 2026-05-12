@@ -14,7 +14,6 @@ interface ClausesSectionInteractiveProps {
   clientName: string
   projectName: string
   onConfirmed: () => void
-  whatsappNumber?: string
 }
 
 export function ClausesSectionInteractive({
@@ -52,8 +51,7 @@ export function ClausesSectionInteractive({
   ],
   clientName,
   projectName,
-  onConfirmed,
-  whatsappNumber
+  onConfirmed
 }: ClausesSectionInteractiveProps) {
   return (
     <section className="min-h-[297mm] w-full flex flex-col bg-background">
@@ -91,7 +89,6 @@ export function ClausesSectionInteractive({
             clientName={clientName}
             projectName={projectName}
             onConfirmed={onConfirmed}
-            whatsappNumber={whatsappNumber}
           />
         </div>
 

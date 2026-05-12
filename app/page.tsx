@@ -30,10 +30,9 @@ const PROJECT_CONFIG = {
     { concept: "Saldo final - 50% contra entrega", status: "pending" as const }
   ],
   // Configuración de contacto InstaWeb
-  whatsappNumber: "5491176351430", // Número de WhatsApp de InstaWeb (sin + ni espacios)
   email: "contacto@instaweb.com",
-  phone: "+54 9 11 7635-1430",
-  website: "www.instaweb.com.ar",
+  phone: "+54 9 11 1234-5678",
+  website: "www.instaweb.com",
   address: "Buenos Aires, Argentina"
 }
 
@@ -95,7 +94,6 @@ export default function DocumentPage() {
             clientName={PROJECT_CONFIG.clientName}
             projectName={PROJECT_CONFIG.projectName}
             onConfirmed={handleConfirmed}
-            whatsappNumber={PROJECT_CONFIG.whatsappNumber}
           />
         </div>
         

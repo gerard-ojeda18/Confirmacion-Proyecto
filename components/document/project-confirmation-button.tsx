@@ -1,56 +1,62 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Loader2, Send } from "lucide-react"
+import { Check, Loader2, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface ProjectConfirmationButtonProps {
   clientName: string
   projectName: string
   onConfirmed: () => void
-  whatsappNumber?: string
-  email?: string
 }
 
 export function ProjectConfirmationButton({
   clientName,
   projectName,
-  onConfirmed,
-  whatsappNumber = "5491112345678", // Número de InstaWeb (sin + ni espacios)
-  email = "contacto@instaweb.com"
+  onConfirmed
 }: ProjectConfirmationButtonProps) {
   const [isConfirming, setIsConfirming] = useState(false)
   const [isConfirmed, setIsConfirmed] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleConfirm = async () => {
     setIsConfirming(true)
+    setError(null)
     
-    // Crear mensaje de confirmación
-    const message = `*CONFIRMACIÓN DE PROYECTO*%0A%0A` +
-      `Cliente: ${clientName}%0A` +
-      `Proyecto: ${projectName}%0A` +
-      `Fecha: ${new Date().toLocaleDateString('es-ES', { 
-        day: 'numeric', 
-        month: 'long', 
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      })}%0A%0A` +
-      `El cliente ha aceptado los términos y condiciones del proyecto.%0A%0A` +
-      `_Confirmación enviada desde el documento digital de InstaWeb_`
-    
-    // Abrir WhatsApp con el mensaje
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
-    
-    // Abrir en nueva ventana
-    window.open(whatsappUrl, '_blank')
-    
-    // Simular delay para UX
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    setIsConfirming(false)
-    setIsConfirmed(true)
-    onConfirmed()
+    const confirmationDate = new Date().toLocaleDateString('es-ES', { 
+      day: 'numeric', 
+      month: 'long', 
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    })
+
+    try {
+      const response = await fetch('/api/confirm-project', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          clientName,
+          projectName,
+          confirmationDate,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al enviar confirmación')
+      }
+
+      setIsConfirmed(true)
+      onConfirmed()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al enviar confirmación. Intente nuevamente.')
+    } finally {
+      setIsConfirming(false)
+    }
   }
 
   if (isConfirmed) {
@@ -74,6 +80,9 @@ export function ProjectConfirmationButton({
             minute: '2-digit'
           })}
         </p>
+        <p className="text-xs text-green-500 mt-2">
+          Se ha enviado un correo de confirmación a InstaWeb
+        </p>
       </div>
     )
   }
@@ -82,8 +91,15 @@ export function ProjectConfirmationButton({
     <div className="text-center py-6">
       <p className="text-sm text-muted-foreground mb-6">
         Al confirmar, acepta todos los términos y condiciones descritos en este documento.
-        Se enviará una notificación a InstaWeb con su confirmación.
+        Se enviará una notificación por correo electrónico a InstaWeb.
       </p>
+      
+      {error && (
+        <div className="mb-4 p-3 bg-destructive/10 border border-destructive/30 rounded-lg">
+          <p className="text-sm text-destructive">{error}</p>
+        </div>
+      )}
+      
       <Button
         onClick={handleConfirm}
         disabled={isConfirming}
@@ -97,7 +113,7 @@ export function ProjectConfirmationButton({
           </>
         ) : (
           <>
-            <Send className="w-5 h-5 mr-2" />
+            <Mail className="w-5 h-5 mr-2" />
             Confirmar Proyecto
           </>
         )}
