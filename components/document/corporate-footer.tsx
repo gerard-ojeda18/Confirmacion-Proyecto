@@ -9,9 +9,9 @@ interface ContactInfo {
 }
 
 export function CorporateFooter({
-  email = "contacto@instaweb.com",
+  email = "contacto@instaweb.com.ar",
   phone = "+1 (555) 123-4567",
-  website = "www.instaweb.com",
+  website = "www.instaweb.com.ar",
   address = "Ciudad de México, México"
 }: ContactInfo) {
   return (

@@ -81,7 +81,7 @@ export function ProjectConfirmationButton({
           })}
         </p>
         <p className="text-xs text-green-500 mt-2">
-          Se ha enviado un correo de confirmación a InstaWeb
+          Se ha enviado la confirmación con exito a InstaWeb
         </p>
       </div>
     )

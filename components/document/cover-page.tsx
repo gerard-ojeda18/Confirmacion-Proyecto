@@ -63,7 +63,7 @@ export function CoverPage({
       <div className="px-8 py-6 border-t border-border">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>InstaWeb - Páginas que generan resultados</span>
-          <span>www.instaweb.com</span>
+          <span>www.instaweb.com.ar</span>
         </div>
       </div>
     </section>

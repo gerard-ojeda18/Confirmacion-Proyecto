@@ -32,7 +32,7 @@ const PROJECT_CONFIG = {
   // Configuración de contacto InstaWeb
   email: "contacto@instaweb.com",
   phone: "+54 9 11 1234-5678",
-  website: "www.instaweb.com",
+  website: "www.instaweb.com.ar",
   address: "Buenos Aires, Argentina"
 }
 
