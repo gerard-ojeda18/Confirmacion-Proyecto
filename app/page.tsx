@@ -23,7 +23,7 @@ const PROJECT_CONFIG = {
     "Formulario de contacto integrado",
     "Integración con Google Analytics",
     "Certificado SSL incluido",
-    "Hosting en Vercel gratis incluido"
+    "Hosting en Vercel incluido"
   ],
   payments: [
     { concept: "Anticipo - 50% del proyecto", status: "paid" as const },
