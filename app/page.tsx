@@ -15,7 +15,7 @@ const PROJECT_CONFIG = {
   clientName: "Gustavo Nicola",
   projectName: "Joyería biarritz",
   documentDate: "26 de Mayo, 2026",
-  deliveryDays: 3,
+  deliveryDays: 3-5,
   platform: "Next.js + Vercel",
   features: [
     "Diseño responsive optimizado para móviles",

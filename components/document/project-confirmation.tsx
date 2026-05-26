@@ -12,7 +12,7 @@ interface ProjectDetails {
 export function ProjectConfirmation({
   clientName = "Gustavo Nicola",
   projectType = "Joyería biarritz",
-  deliveryDays = 3,
+  deliveryDays = 3-5,
   platform = "Next.js + Vercel",
   features = [
     "Diseño responsive optimizado para móviles",

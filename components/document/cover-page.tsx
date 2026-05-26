@@ -7,7 +7,7 @@ interface CoverPageProps {
 }
 
 export function CoverPage({ 
-  clientName = "Gustavo Nicolas", 
+  clientName = "Gustavo Nicola", 
   projectName = "Joyería biarritz",
   documentDate = "26 de Mayo, 2026"
 }: CoverPageProps) {
