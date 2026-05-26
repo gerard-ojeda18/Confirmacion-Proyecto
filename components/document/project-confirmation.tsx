@@ -10,7 +10,7 @@ interface ProjectDetails {
 }
 
 export function ProjectConfirmation({
-  clientName = "Gustavo Nicolas",
+  clientName = "Gustavo Nicola",
   projectType = "Joyería biarritz",
   deliveryDays = 3,
   platform = "Next.js + Vercel",

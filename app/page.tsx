@@ -12,7 +12,7 @@ import { PrintButton } from "@/components/document/print-button"
 
 // Configuración del proyecto - Editar estos valores para cada cliente
 const PROJECT_CONFIG = {
-  clientName: "Gustavo Nicolas",
+  clientName: "Gustavo Nicola",
   projectName: "Joyería biarritz",
   documentDate: "26 de Mayo, 2026",
   deliveryDays: 3,
