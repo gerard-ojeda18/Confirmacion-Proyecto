@@ -91,7 +91,7 @@ export function ProjectConfirmationButton({
     <div className="text-center py-6">
       <p className="text-sm text-muted-foreground mb-6">
         Al confirmar, acepta todos los términos y condiciones descritos en este documento.
-        Se enviará una notificación por correo electrónico a InstaWeb.
+        Se enviará una notificación de confirmación a InstaWeb.
       </p>
       
       {error && (
