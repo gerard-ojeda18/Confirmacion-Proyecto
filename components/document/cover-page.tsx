@@ -7,9 +7,9 @@ interface CoverPageProps {
 }
 
 export function CoverPage({ 
-  clientName = "Juan Pérez", 
-  projectName = "Desarrollo Web Corporativo",
-  documentDate = "11 de Mayo, 2026"
+  clientName = "Gustavo Nicolas", 
+  projectName = "Joyería biarritz",
+  documentDate = "26 de Mayo, 2026"
 }: CoverPageProps) {
   return (
     <section className="min-h-[297mm] w-full flex flex-col bg-background relative overflow-hidden">

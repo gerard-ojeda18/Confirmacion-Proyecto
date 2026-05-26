@@ -10,8 +10,8 @@ interface ProjectDetails {
 }
 
 export function ProjectConfirmation({
-  clientName = "Juan Pérez",
-  projectType = "Landing Page Corporativa",
+  clientName = "Gustavo Nicolas",
+  projectType = "Joyería biarritz",
   deliveryDays = 3,
   platform = "Next.js + Vercel",
   features = [
